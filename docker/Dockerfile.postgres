@@ -1,0 +1,11 @@
+FROM postgres:15
+
+# Instead of installing postgresql-server-dev-all, install postgresql-server-dev-15 specifically
+RUN apt-get update && apt-get install -y git make gcc postgresql-server-dev-15
+
+RUN git clone --depth 1 https://github.com/pgvector/pgvector.git /pgvector
+
+# Force make to use the 15 pg_config
+RUN cd /pgvector && make PG_CONFIG=/usr/lib/postgresql/15/bin/pg_config && make install
+
+EXPOSE 5432

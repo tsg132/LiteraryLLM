@@ -1,0 +1,5 @@
+psycopg2==2.9.7
+transformers==4.31.0
+sentence-transformers==2.2.2
+torch==2.0.1
+huggingface_hub==0.16.4

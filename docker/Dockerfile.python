@@ -1,0 +1,23 @@
+FROM python:3.10-slim
+
+# 1) System-level deps for psycopg2, maybe libpq-dev, etc.
+RUN apt-get update && apt-get install -y libpq-dev gcc
+
+# 2) Set a working directory
+WORKDIR /app
+
+# 3) Copy your requirements
+COPY requirements.txt /app/
+
+# 4) Install Python packages
+RUN pip install --no-cache-dir -r requirements.txt
+
+# 5) Copy your scripts into /app
+COPY scripts/ /app/scripts/
+COPY data/ /app/data/
+
+# 6) Expose a port if you eventually host a server
+EXPOSE 8000
+
+# 7) Default command
+CMD ["python", "scripts/rag_pipeline.py"]

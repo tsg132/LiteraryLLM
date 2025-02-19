@@ -1,0 +1,37 @@
+version: "3.9"
+services:
+  postgres:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.postgres
+    container_name: pgvector-container
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_DB=rag_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  python:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.python
+    container_name: rag-pipeline
+    depends_on:
+      - postgres
+    environment:
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=rag_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=secret
+    links:
+      - postgres
+    volumes:
+      - ./data:/app/data
+      - ./scripts:/app/scripts
+
+volumes:
+  pgdata:
