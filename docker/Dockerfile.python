@@ -20,4 +20,4 @@ COPY data/ /app/data/
 EXPOSE 8000
 
 # 7) Default command
-CMD ["python", "scripts/rag_pipeline.py"]
+CMD ["sleep", "infinity"]
