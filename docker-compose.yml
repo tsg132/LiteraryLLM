@@ -10,7 +10,7 @@ services:
       - POSTGRES_PASSWORD=secret
       - POSTGRES_DB=rag_db
     ports:
-      - "5432:5432"  # Allow external access from Colab
+      - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
     networks:
@@ -23,6 +23,7 @@ services:
     container_name: rag-pipeline
     depends_on:
       - postgres
+      - retrieval_api
     environment:
       - POSTGRES_HOST=postgres
       - POSTGRES_PORT=5432
@@ -31,12 +32,13 @@ services:
       - POSTGRES_PASSWORD=secret
     links:
       - postgres
+      - retrieval_api
     volumes:
       - ./data:/app/data
       - ./scripts:/app/scripts
     networks:
       - rag_network
-    command: ["sleep", "infinity"]  # Keeps container running for manual execs
+    command: ["sleep", "infinity"]
 
   retrieval_api:
     build:
@@ -52,10 +54,10 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=secret
     ports:
-      - "8000:8000"  # Expose the API for Colab access
+      - "8000:8000"
     networks:
       - rag_network
-    command: ["python", "scripts/retrieval_api.py"]
+    command: ["uvicorn", "scripts.retrieval_api:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
 
 networks:
   rag_network:

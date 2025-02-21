@@ -1,0 +1,5 @@
+Literal translation, direct translation, or word-for-word translation is the translation of a text done by translating each word separately without analysing how the words are used together in a phrase or sentence.[1]
+
+In translation theory, another term for literal translation is metaphrase (as opposed to paraphrase for an analogous translation). It is to be distinguished from an interpretation (done, for example, by an interpreter).
+
+Literal translation leads to mistranslation of idioms, which can be a serious problem for machine translation.[2]

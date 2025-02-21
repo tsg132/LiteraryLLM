@@ -1,0 +1,9 @@
+Russian Post has a system of postal codes (Russian: почтовый индекс, pochtovyy indeks) based on the federal subject a place is located in. Each postal code consists of six digits with first three referring to the federal subject or the administrative division with special status. Some larger subjects have multiple three-digit prefixes. For instance, Moscow's postal codes fall in the range 101–129.
+
+Larger cities/towns have a "pochtamt" (Russian: почтамт, from German Postamt), or a main post office, which is assigned the main postal code for the city. For instance Moscow's pochtamt has a postal code of 101000. One street in a big city can have several postal codes; for instance, in Saint Petersburg (with postal codes falling in the range 190–199), Kirochnaya Street has the following postal codes: 191028, 191123, 191124, 191015, 191014, which are based on house numbers.
+
+Post codes in Russia are six digits long. To assist in their machine reading, envelopes are printed with a nine-segment outline for each digit, which the sender fills in. However, this is not necessary and the postal code can be written by hand as in any other country. The code usually identifies the post office.
+
+Post codes in Russia are fully compatible and non-overlapping with postal codes in Belarus.
+
+In 2014, some areas of Ukraine under Russian administration were assigned Russian postal codes in the range 295–299, adding an initial 2 to the existing Ukrainian five-digit codes.[1]
